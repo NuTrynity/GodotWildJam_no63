@@ -52,6 +52,8 @@ func _ready():
 		meal_want.texture = load("res://Sprites/omurice.png")
 	elif meal_i_want == 1:
 		meal_want.texture = load("res://Sprites/cat_latte.png")
+		
+	idle_animation()
 
 '''
 func _physics_process(_delta : float) -> void:
@@ -172,6 +174,10 @@ func sit_animation():
 		npc_sprite.flip_h = false
 	else:
 		npc_sprite.flip_h = true
+	
+func idle_animation():
+	animations.play("idle")
+	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
 	
 func patience_timer_setup():
 	add_child(patience_timer)

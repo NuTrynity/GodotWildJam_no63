@@ -24,7 +24,7 @@ func _ready():
 func stop_spawning():
 	npc_spawn_timer.stop()
 
-func randomize_spawn():
+func randomize_spawn_timer():
 	npc_spawn_time = randomizer.randf_range(min_time, max_time)
 	npc_spawn_timer.wait_time = npc_spawn_time
 
@@ -38,7 +38,7 @@ func reduce_cooldown():
 func setup_timer():
 	add_child(npc_spawn_timer)
 	npc_spawn_timer.one_shot = false
-	randomize_spawn()
+	randomize_spawn_timer()
 	npc_spawn_timer.connect("timeout", _on_timer_end)
 	
 	add_child(difficulty_timer)
@@ -49,7 +49,7 @@ func setup_timer():
 
 func _on_timer_end():
 	spawn_customer()
-	randomize_spawn()
+	randomize_spawn_timer()
 	
 	table_manager.chair_num += 1
 	

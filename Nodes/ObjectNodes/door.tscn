@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2soaa4584xu4"]
+[gd_scene load_steps=8 format=3 uid="uid://b2soaa4584xu4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/door.gd" id="1_2vq63"]
 [ext_resource type="Texture2D" uid="uid://clsp4j0aam4jb" path="res://Sprites/door.png" id="2_fyar6"]
 [ext_resource type="Resource" uid="uid://dmv8t52t4ridt" path="res://CustomResources/TableManager.tres" id="2_tesch"]
 [ext_resource type="Resource" uid="uid://d0ojrka58d027" path="res://CustomResources/GameManager.tres" id="3_vimdd"]
+[ext_resource type="Script" path="res://Scripts/ComponentScripts/progress_bar.gd" id="5_08o45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85k4p"]
 size = Vector2(178, 144)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jluo6"]
+bg_color = Color(0, 1, 0, 0.588235)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_2vq63")
@@ -24,3 +28,12 @@ position = Vector2(0, 76)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveArea"]
 position = Vector2(-8, -7)
 shape = SubResource("RectangleShape2D_85k4p")
+
+[node name="Patience" type="ProgressBar" parent="."]
+offset_left = -94.0
+offset_top = -309.0
+offset_right = 96.0
+offset_bottom = -282.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_jluo6")
+show_percentage = false
+script = ExtResource("5_08o45")
